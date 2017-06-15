@@ -8,11 +8,12 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to arkcoin.net</h2>
         </div>
-        <p className="App-intro">
-          Upcoming Dashboard
-        </p>
+        <div className="App-intro">
+          <p>
+            Upcoming Dashboard
+          </p>
+        </div>
       </div>
     );
   }
