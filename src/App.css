@@ -2,17 +2,21 @@
   text-align: center;
 }
 
-.App-logo {
+.AppLogo {
   height: 60px;
 }
 
-.App-header {
+.AppHeader {
   background-color: #222;
   height:  60px;
   padding: 10px;
   color: white;
 }
 
-.App-intro {
+.AppIntro {
+  font-size: large;
+}
+
+.AppLinks {
   font-size: large;
 }
