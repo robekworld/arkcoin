@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-size: small;
 }
 
 .AppLogo {
@@ -14,15 +15,15 @@
 }
 
 .AppIntro {
-  font-size: large;
 }
 
 .AppLinks {
-  font-size: large;
 }
 
 .AppTicker{
-  font-size: large;
+}
+
+.AppDelegate{
 }
 
 table{
