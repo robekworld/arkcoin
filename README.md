@@ -4,18 +4,23 @@ Dashboard for arkcoin.net
 
 ## Installation
 
-``cd arkcoin``
-
-``npm install``
+```
+cd arkcoin
+npm install
+```
 
 ## Run for developement
 
-``npm start``
+```
+npm start
+```
 
 ## Build for production
 
-``git clone https://github.com/Jarunik/arkcoin
+```
+git clone https://github.com/Jarunik/arkcoin
 cd arkcoin
 npm install
 npm run build
-mv build build_final``
+mv build build_final
+```
