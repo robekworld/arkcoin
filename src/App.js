@@ -3,12 +3,20 @@ import React, {
 } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 
 class AppHeader extends Component {
   render() {
     return (
       <div className="AppHeader">
         <img src={ logo } className="AppLogo" alt="logo" />
+        <nav>
+          <p>
+            <Link to='/'>Home</Link> &nbsp;
+            <Link to='/delegates'>Delegates</Link> &nbsp;
+            <Link to='/ticker'>Ticker</Link>
+          </p>
+        </nav>
       </div>
     );
   }
@@ -32,11 +40,19 @@ class AppLinks extends Component {
     return (
       <div className="AppBody">
         <p>
-          <a href="https://ark.io/"> ark.io</a> &nbsp;
-          <a href="https://www.reddit.com/r/ArkEcosystem/"> reddit</a> &nbsp;
-          <a href="https://explorer.arkcoin.net/"> explorer</a> &nbsp;
-          <a href="https://dexplorer.arkcoin.net/"> devnet explorer</a> &nbsp;
-          <a href="https://www.reddit.com/r/ArkEcosystem/wiki/jarunik"> jarunik</a>
+          <a href="https://ark.io/"> ark.io</a>
+        </p>
+        <p>
+          <a href="https://www.reddit.com/r/ArkEcosystem/"> reddit</a>
+        </p>
+        <p>
+          <a href="https://explorer.arkcoin.net/">explorer</a>
+        </p>
+        <p>
+          <a href="https://dexplorer.arkcoin.net/">devnet explorer</a>
+        </p>
+        <p>
+          <a href="https://www.reddit.com/r/ArkEcosystem/wiki/jarunik">delegate proposal jarunik</a>
         </p>
       </div>
     );
@@ -176,7 +192,9 @@ class AppDelegate extends Component {
           <tbody> { delegateItem }
           </tbody>
         </table>
+        <AppStandby />
       </div>
+
     );
   }
 }
@@ -254,16 +272,38 @@ class AppStandby extends Component {
   }
 }
 
+class AppHome extends Component {
+  render() {
+    return (
+      <div className="AppHome">
+        <AppIntro />
+        <AppLinks />
+      </div>
+    );
+  }
+}
+
+class AppMain extends Component {
+  render() {
+    return (
+      <div className="AppMain">
+        <Switch>
+          <Route exact path='/' component={AppHome}/>
+          <Route path='/delegates' component={AppDelegate}/>
+          <Route path='/ticker' component={AppTicker}/>
+        </Switch>
+      </div>
+    );
+  }
+}
+
+
 class App extends Component {
   render() {
     return (
       <div className="App">
         <AppHeader />
-        <AppIntro />
-        <AppLinks />
-        <AppDelegate />
-        <AppStandby />
-        <AppTicker />
+        <AppMain />
       </div>
     );
   }

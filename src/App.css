@@ -9,9 +9,13 @@
 
 .AppHeader {
   background-color: #222;
-  height:  60px;
+  height:  100px;
   padding: 10px;
   color: white;
+}
+
+.AppHeader a {
+    color: white;
 }
 
 .AppIntro {

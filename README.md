@@ -7,6 +7,7 @@ Dashboard for arkcoin.net
 ```
 cd arkcoin
 npm install
+npm install --save react-router-dom
 ```
 
 ## Run for developement
@@ -21,6 +22,7 @@ npm start
 git clone https://github.com/Jarunik/arkcoin
 cd arkcoin
 npm install
+npm install --save react-router-dom
 npm run build
 mv build build_final
 ```
