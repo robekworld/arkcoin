@@ -332,9 +332,9 @@ class AppRewards extends Component {
             <tr>
               <th> Address
               </th>
-              <th> Vote
+              <th> Total Vote
               </th>
-              <th> Earnings
+              <th> Unpaid Earnings
               </th>
             </tr>
           </thead>
