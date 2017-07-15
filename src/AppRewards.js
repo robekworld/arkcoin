@@ -11,7 +11,8 @@ export class AppRewards extends Component {
 
   componentDidMount() {
     var that = this;
-    var url = `https://explorer.arkcoin.net/arkgoserver/voters/rewards/`;
+    //var url = `https://explorer.arkcoin.net/arkgoserver/voters/rewards`;
+    var url = 'http://91.134.137.240:54000/voters/rewards';
     fetch(url)
       .then(function(response) {
         if (response.status >= 400) {
