@@ -6,7 +6,7 @@ export class AppRewards extends Component {
     super(props);
 
     this.state = {
-      reward: []
+      rewards: []
     }
   }
 
@@ -22,35 +22,32 @@ export class AppRewards extends Component {
       })
       .then(function(data) {
         that.setState({
-          reward: data
+          rewards: data
         });
       });
   }
 
   render() {
-    if (typeof(this.state.reward[0]) === "undefined") {
+    if (typeof(this.state.rewards[0]) === "undefined") {
       return (
         <div>
           <p> Rewards
           </p>
-          <p> loading
+          <p> calculating
           </p>
         </div>
       );
     }
 
-    //lazy so no key:value but just an array
-    const rewards = this.state.reward.map((reward) => [reward.Address, Number((reward.VoteWeight).toFixed(1)), Number((reward.EarnedAmountXX).toFixed(6))]);
+    const rewardsFiltered = this.state.rewards.filter(reward => Number((reward.VoteWeight).toFixed(1)) !== 0);
 
-    const rewardsFiltered = rewards.filter(reward => reward[1] !== 0);
-
-    const rewardItem = rewardsFiltered.map((rewards) =>
-      <tr key={ rewards[0] }>
-        <td> <Link to={'/paymentvoter/'+rewards[0]}> { rewards[0] } </Link>
+    const rewardRow = rewardsFiltered.map((reward) =>
+      <tr key={ reward.Address }>
+        <td> <Link to={'/paymentvoter/'+reward.Address}> { reward.Address } </Link>
         </td>
-        <td> { rewards[1] }
+        <td> { Number((reward.VoteWeight).toFixed(1)) }
         </td>
-        <td> { rewards[2] }
+        <td> { Number((reward.EarnedAmountXX).toFixed(6)) }
         </td>
       </tr>
     );
@@ -68,7 +65,7 @@ export class AppRewards extends Component {
               </th>
             </tr>
           </thead>
-          <tbody>{ rewardItem }</tbody>
+          <tbody>{ rewardRow }</tbody>
         </table>
       </div>
     );

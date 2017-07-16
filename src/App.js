@@ -32,13 +32,12 @@ class AppHeader extends Component {
 
 class AppIntro extends Component {
   render() {
-    return ( <
-      div className = "AppIntro" >
-      <
-      p >
-      Welcome to arkcoin.net <
-      /p> <
-      /div>
+    return (
+      <div className = "AppIntro">
+        <p>
+          Welcome to arkcoin.net
+        </p>
+      </div>
     );
   }
 }

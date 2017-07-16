@@ -6,7 +6,7 @@ export class AppPaymentRun extends Component {
     super(props);
 
     this.state = {
-      history: []
+      payments: []
     }
   }
 
@@ -23,13 +23,13 @@ export class AppPaymentRun extends Component {
       })
       .then(function(info) {
         that.setState({
-          history: info
+          payments: info
         });
       });
   }
 
   render() {
-    if (typeof(this.state.history.count) === "undefined") {
+    if (typeof(this.state.payments.count) === "undefined") {
       return (
         <div>
           <p> History
@@ -40,16 +40,13 @@ export class AppPaymentRun extends Component {
       );
     }
 
-    //lazy so no key:value but just an array
-    const payments = this.state.history.data.map((history) => [history.Address, Number((history.VoteWeight).toFixed(1)), Number((history.EarnedAmountXX).toFixed(6))]);
-
-    const paymentItem = payments.map((payments) =>
-      <tr key={ payments[0] }>
-        <td> <Link to={'/paymentvoter/'+payments[0]}> { payments[0] } </Link>
+    const paymentRow = this.state.payments.data.map((payment) =>
+      <tr key={ payment.Address }>
+        <td> <Link to={'/paymentvoter/'+payment.Address}> { payment.Address } </Link>
         </td>
-        <td> { payments[1] }
+        <td> { Number((payment.VoteWeight).toFixed(1)) }
         </td>
-        <td> { payments[2] }
+        <td> { Number((payment.EarnedAmountXX).toFixed(6))}
         </td>
       </tr>
     );
@@ -67,7 +64,7 @@ export class AppPaymentRun extends Component {
               </th>
             </tr>
           </thead>
-          <tbody>{ paymentItem }</tbody>
+          <tbody>{ paymentRow }</tbody>
         </table>
       </div>
     );

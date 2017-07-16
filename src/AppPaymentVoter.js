@@ -5,7 +5,7 @@ export class AppPaymentVoter extends Component {
     super(props);
 
     this.state = {
-      history: []
+      payments: []
     }
   }
 
@@ -22,16 +22,16 @@ export class AppPaymentVoter extends Component {
       })
       .then(function(info) {
         that.setState({
-          history: info
+          payments: info
         });
       });
   }
 
   render() {
-    if (typeof(this.state.history.count) === "undefined") {
+    if (typeof(this.state.payments.count) === "undefined") {
       return (
         <div>
-          <p> History
+          <p> Payments
           </p>
           <p> loading
           </p>
@@ -39,18 +39,15 @@ export class AppPaymentVoter extends Component {
       );
     }
 
-    //lazy so no key:value but just an array
-    const payments = this.state.history.data.map((history) => [history.Pk, history.CreatedAt, Number((history.VoteWeight).toFixed(1)), Number((history.EarnedAmountXX).toFixed(6)), history.Transaction.id]);
-
-    const paymentItem = payments.map((payments) =>
-      <tr key={ payments[0] }>
-        <td> { payments[1].substring(0,10) }
+    const paymentRow = this.state.payments.data.map((payment) =>
+      <tr key={ payment.Pk }>
+        <td> { payment.CreatedAt.substring(0,10) }
         </td>
-        <td> { payments[2] }
+        <td> { Number((payment.VoteWeight).toFixed(1)) }
         </td>
-        <td> { payments[3] }
+        <td> { Number((payment.EarnedAmountXX).toFixed(6)) }
         </td>
-        <td> <a href={"https://explorer.arkcoin.net/tx/"+payments[4]}> {payments[4].substring(0,6)+"..."} </a>
+        <td> <a href={"https://explorer.arkcoin.net/tx/"+payment.Transaction.id}> {payment.Transaction.id.substring(0,6)+"..."} </a>
         </td>
       </tr>
     );
@@ -73,7 +70,7 @@ export class AppPaymentVoter extends Component {
               </th>
             </tr>
           </thead>
-          <tbody>{ paymentItem }</tbody>
+          <tbody>{ paymentRow }</tbody>
         </table>
       </div>
     );

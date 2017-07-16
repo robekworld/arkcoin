@@ -6,7 +6,7 @@ export class AppHistory extends Component {
     super(props);
 
     this.state = {
-      history: []
+      paymentruns: []
     }
   }
 
@@ -22,16 +22,16 @@ export class AppHistory extends Component {
       })
       .then(function(info) {
         that.setState({
-          history: info
+          paymentruns: info
         });
       });
   }
 
   render() {
-    if (typeof(this.state.history.count) === "undefined") {
+    if (typeof(this.state.paymentruns.count) === "undefined") {
       return (
         <div>
-          <p> History
+          <p> History of Payment Runs
           </p>
           <p> loading
           </p>
@@ -39,16 +39,15 @@ export class AppHistory extends Component {
       );
     }
 
-    //lazy so no key:value but just an array
-    const payments = this.state.history.data.map((history) => [history.Pk, history.CreatedAt, history.NrOfTransactions]);
-
-    const paymentItem = payments.map((payments) =>
-      <tr key={ payments[0] }>
-        <td> <Link to={'/paymentrun/'+payments[0]}> { payments[0] } </Link>
+    const paymentRow= this.state.paymentruns.data.map((run) =>
+      <tr key={ run.Pk }>
+        <td> <Link to={'/paymentrun/'+run.Pk}> { run.Pk} </Link>
         </td>
-        <td> { payments[1].substring(0,10) }
+        <td> { run.CreatedAt.substring(0,10) }
         </td>
-        <td> { payments[2] }
+        <td> { run.NrOfTransactions }
+        </td>
+        <td> { Math.round(run.VoteWeight / 100000000) }
         </td>
       </tr>
     );
@@ -64,9 +63,11 @@ export class AppHistory extends Component {
               </th>
               <th> Transactions
               </th>
+              <th> Votes
+              </th>
             </tr>
           </thead>
-          <tbody>{ paymentItem }</tbody>
+          <tbody>{ paymentRow }</tbody>
         </table>
       </div>
     );
