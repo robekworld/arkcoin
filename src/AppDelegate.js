@@ -43,11 +43,11 @@ export class AppDelegate extends Component {
 
     const delegateItem = delegates.map((delegates) =>
       <tr key={ delegates[1] }>
-        <td> { delegates[0] }
+        <td>{ delegates[0] }
         </td>
-        <td> {delegates[1] === 'jarunik' ? <b> { delegates[1] } </b> : delegates[1] } 
+        <td>{ delegates[1] === 'jarunik' ? <b> { delegates[1] } </b> : delegates[1] }
         </td>
-        <td> { delegates[2] }
+        <td>{ delegates[2] }
         </td>
       </tr>
     );
@@ -57,15 +57,15 @@ export class AppDelegate extends Component {
         <table>
           <thead>
             <tr>
-              <th> Rank
+              <th>Rank
               </th>
-              <th> Delegate
+              <th>Delegate
               </th>
-              <th> Vote(k)
+              <th>Vote(k)
               </th>
             </tr>
           </thead>
-          <tbody> { delegateItem }
+          <tbody>{delegateItem}
           </tbody>
         </table>
         <AppStandby />
@@ -140,7 +140,7 @@ class AppStandby extends Component {
               </th>
             </tr>
           </thead>
-          <tbody> { delegateItem }
+          <tbody>{ delegateItem }
           </tbody>
         </table>
       </div>

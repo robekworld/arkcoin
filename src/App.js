@@ -7,6 +7,9 @@ import { AppLinks } from './AppLinks.js'
 import { AppTicker } from './AppTicker.js'
 import { AppDelegate } from './AppDelegate.js'
 import { AppRewards } from './AppRewards.js'
+import { AppHistory } from './AppHistory.js'
+import { AppPaymentRun} from './AppPaymentRun.js'
+import { AppPaymentVoter} from './AppPaymentVoter.js'
 
 class AppHeader extends Component {
   render() {
@@ -18,7 +21,8 @@ class AppHeader extends Component {
             <Link to='/'>Home</Link> &nbsp;
             <Link to='/delegates'>Delegates</Link> &nbsp;
             <Link to='/ticker'>Ticker</Link> &nbsp;
-            <Link to='/rewards'>Rewards</Link>
+            <Link to='/rewards'>Rewards</Link> &nbsp;
+            <Link to='/history'>History</Link>
           </p>
         </nav>
       </div>
@@ -59,6 +63,9 @@ class AppMain extends Component {
           <Route path='/delegates' component={AppDelegate}/>
           <Route path='/ticker' component={AppTicker}/>
           <Route path='/rewards' component={AppRewards}/>
+          <Route path='/history' component={AppHistory}/>
+          <Route path='/paymentrun/:id' component={AppPaymentRun}/>
+          <Route path='/paymentvoter/:id' component={AppPaymentVoter}/>
         </Switch>
       </div>
     );

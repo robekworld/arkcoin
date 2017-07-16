@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
-export class AppRewards extends Component {
+export class AppHistory extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      reward: []
+      history: []
     }
   }
 
   componentDidMount() {
     var that = this;
-    var url = 'https://arkgo.arkcoin.net/voters/rewards';
+    var url = 'https://arkgo.arkcoin.net/delegate/paymentruns';
     fetch(url)
       .then(function(response) {
         if (response.status >= 400) {
@@ -20,18 +20,18 @@ export class AppRewards extends Component {
         }
         return response.json();
       })
-      .then(function(data) {
+      .then(function(info) {
         that.setState({
-          reward: data
+          history: info
         });
       });
   }
 
   render() {
-    if (typeof(this.state.reward[0]) === "undefined") {
+    if (typeof(this.state.history.count) === "undefined") {
       return (
         <div>
-          <p> Rewards
+          <p> History
           </p>
           <p> loading
           </p>
@@ -40,17 +40,15 @@ export class AppRewards extends Component {
     }
 
     //lazy so no key:value but just an array
-    const rewards = this.state.reward.map((reward) => [reward.Address, Number((reward.VoteWeight).toFixed(1)), Number((reward.EarnedAmountXX).toFixed(6))]);
+    const payments = this.state.history.data.map((history) => [history.Pk, history.CreatedAt, history.NrOfTransactions]);
 
-    const rewardsFiltered = rewards.filter(reward => reward[1] !== 0);
-
-    const rewardItem = rewardsFiltered.map((rewards) =>
-      <tr key={ rewards[0] }>
-        <td> <Link to={'/paymentvoter/'+rewards[0]}> { rewards[0] } </Link>
+    const paymentItem = payments.map((payments) =>
+      <tr key={ payments[0] }>
+        <td> <Link to={'/paymentrun/'+payments[0]}> { payments[0] } </Link>
         </td>
-        <td> { rewards[1] }
+        <td> { payments[1].substring(0,10) }
         </td>
-        <td> { rewards[2] }
+        <td> { payments[2] }
         </td>
       </tr>
     );
@@ -60,15 +58,15 @@ export class AppRewards extends Component {
         <table>
           <thead>
             <tr>
-              <th> Address
+              <th> Run
               </th>
-              <th> Votes
+              <th> Date
               </th>
-              <th> Unpaid
+              <th> Transactions
               </th>
             </tr>
           </thead>
-          <tbody>{ rewardItem }</tbody>
+          <tbody>{ paymentItem }</tbody>
         </table>
       </div>
     );
