@@ -13,7 +13,7 @@ export class AppPaymentRun extends Component {
   componentDidMount() {
     var that = this;
     var paymentRunId = that.props.match.params.id;
-    var url = 'https://arkgo.arkcoin.net/delegate/paymentruns/details?parentid='+paymentRunId;
+    var url = 'https://server.arkcoin.net/delegate/paymentruns/details?parentid='+paymentRunId;
     fetch(url)
       .then(function(response) {
         if (response.status >= 400) {

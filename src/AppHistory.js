@@ -12,7 +12,7 @@ export class AppHistory extends Component {
 
   componentDidMount() {
     var that = this;
-    var url = 'https://arkgo.arkcoin.net/delegate/paymentruns';
+    var url = 'https://server.arkcoin.net/delegate/paymentruns';
     fetch(url)
       .then(function(response) {
         if (response.status >= 400) {

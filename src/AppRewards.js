@@ -12,7 +12,7 @@ export class AppRewards extends Component {
 
   componentDidMount() {
     var that = this;
-    var url = 'https://arkgo.arkcoin.net/voters/rewards';
+    var url = 'https://server.arkcoin.net/voters/rewards';
     fetch(url)
       .then(function(response) {
         if (response.status >= 400) {
@@ -31,9 +31,11 @@ export class AppRewards extends Component {
     if (typeof(this.state.rewards[0]) === "undefined") {
       return (
         <div>
-          <p> Rewards
+          <p> Calculating Rewards now!
           </p>
-          <p> calculating
+          <p> This will take a while.
+          </p>
+          <p> Thank you for your patience.
           </p>
         </div>
       );
@@ -49,6 +51,8 @@ export class AppRewards extends Component {
         </td>
         <td> { Number((reward.EarnedAmountXX).toFixed(6)) }
         </td>
+        <td> <a href={"https://explorer.arkcoin.net/address/"+reward.Address}>link</a>
+        </td>
       </tr>
     );
 
@@ -62,6 +66,8 @@ export class AppRewards extends Component {
               <th> Votes
               </th>
               <th> Unpaid
+              </th>
+              <th> Explorer
               </th>
             </tr>
           </thead>

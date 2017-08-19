@@ -12,7 +12,7 @@ export class AppPaymentVoter extends Component {
   componentDidMount() {
     var that = this;
     var paymentVoter = that.props.match.params.id;
-    var url = 'https://arkgo.arkcoin.net/delegate/paymentruns/details?address='+paymentVoter;
+    var url = 'https://server.arkcoin.net/delegate/paymentruns/details?address='+paymentVoter;
     fetch(url)
       .then(function(response) {
         if (response.status >= 400) {

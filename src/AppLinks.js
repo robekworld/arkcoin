@@ -14,6 +14,9 @@ export class AppLinks extends Component {
           <a href="https://www.reddit.com/r/ArkDelegates/"> /r/ArkDelegates</a>
         </p>
         <p>
+          <a href="https://www.reddit.com/r/arktrader/"> /r/arktrader</a>
+        </p>
+        <p>
           <a href="https://explorer.arkcoin.net/">explorer</a>
         </p>
         <p>
