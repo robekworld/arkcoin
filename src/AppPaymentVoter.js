@@ -55,7 +55,7 @@ export class AppPaymentVoter extends Component {
     return (
       <div>
         <p>
-        {this.props.match.params.id}
+        <a href={"https://explorer.arkcoin.net/address/"+this.props.match.params.id}> {this.props.match.params.id}</a>
         </p>
         <table>
           <thead>
