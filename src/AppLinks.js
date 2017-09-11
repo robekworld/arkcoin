@@ -25,6 +25,9 @@ export class AppLinks extends Component {
         <p>
           <a href="https://www.reddit.com/r/ArkDelegates/wiki/jarunik">delegate proposal jarunik</a>
         </p>
+        <p>
+          <a href="https://arkchat.net">Community Chat</a>
+        </p>
       </div>
     );
   }

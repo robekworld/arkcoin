@@ -20,8 +20,6 @@ class AppHeader extends Component {
           <p>
             <Link to='/'>Home</Link> &nbsp;
             <Link to='/delegates'>Delegates</Link> &nbsp;
-            <Link to='/ticker'>Ticker</Link> &nbsp;
-            <Link to='/rewards'>Rewards</Link> &nbsp;
             <Link to='/history'>History</Link>
           </p>
         </nav>
@@ -35,7 +33,7 @@ class AppIntro extends Component {
     return (
       <div className = "AppIntro">
         <p>
-          Welcome to arkcoin.net
+          Welcome to arkcoin.net <br/>
         </p>
       </div>
     );
