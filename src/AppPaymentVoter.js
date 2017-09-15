@@ -43,9 +43,9 @@ export class AppPaymentVoter extends Component {
       <tr key={ payment.Pk }>
         <td> { payment.CreatedAt.substring(0,10) }
         </td>
-        <td> { Number((payment.VoteWeight).toFixed(1)) }
+        <td> { Number (payment.VoteWeight).toLocaleString('en') }
         </td>
-        <td> { Number((payment.EarnedAmountXX).toFixed(6)) }
+        <td> { Number (payment.EarnedAmountXX).toLocaleString('en') }
         </td>
         <td> <a href={"https://explorer.arkcoin.net/tx/"+payment.Transaction.id}> {payment.Transaction.id.substring(0,6)+"..."} </a>
         </td>

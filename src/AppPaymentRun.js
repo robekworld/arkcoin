@@ -44,9 +44,9 @@ export class AppPaymentRun extends Component {
       <tr key={ payment.Address }>
         <td> <Link to={'/paymentvoter/'+payment.Address}> { payment.Address } </Link>
         </td>
-        <td> { Number((payment.VoteWeight).toFixed(1)) }
+        <td> { Number (payment.VoteWeight).toLocaleString('en') }
         </td>
-        <td> { Number((payment.EarnedAmountXX).toFixed(6))}
+        <td> { Number (payment.EarnedAmountXX).toLocaleString('en')}
         </td>
       </tr>
     );

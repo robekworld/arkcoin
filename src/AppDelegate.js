@@ -44,7 +44,7 @@ export class AppDelegate extends Component {
         </td>
         <td>{ delegate.username === 'jarunik' ? <b> { delegate.username } </b> : delegate.username }
         </td>
-        <td>{ Math.round(delegate.vote / 100000000000) }
+        <td>{ Number (delegate.vote / 100000000 ).toLocaleString('en') }
         </td>
       </tr>
     );
@@ -116,7 +116,7 @@ class AppStandby extends Component {
       </td>
       <td>{ delegate.username === 'jarunik' ? <b> { delegate.username } </b> : delegate.username }
       </td>
-      <td>{ Math.round(delegate.vote / 100000000000) }
+      <td>{ Number (delegate.vote / 100000000).toLocaleString('en') }
       </td>
     </tr>
   );
