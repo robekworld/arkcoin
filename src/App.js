@@ -28,38 +28,12 @@ class AppHeader extends Component {
   }
 }
 
-class AppIntro extends Component {
-  render() {
-    return (
-      <div className = "AppIntro">
-        <p>
-          Welcome to arkcoin.net <br/>
-          <br/>
-          Services provided by<br/>
-          delegate jarunik
-        </p>
-      </div>
-    );
-  }
-}
-
-class AppHome extends Component {
-  render() {
-    return (
-      <div className="AppHome">
-        <AppIntro />
-        <AppLinks />
-      </div>
-    );
-  }
-}
-
 class AppMain extends Component {
   render() {
     return (
       <div className="AppMain">
         <Switch>
-          <Route exact path='/' component={AppHome}/>
+          <Route exact path='/' component={AppLinks}/>
           <Route path='/delegates' component={AppDelegate}/>
           <Route path='/voters' component={AppVoters}/>          
           <Route path='/history' component={AppHistory}/>

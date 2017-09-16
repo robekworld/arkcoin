@@ -5,7 +5,8 @@ export class AppBittrex extends Component {
     super(props);
 
     this.state = {
-      payments: []
+      payments: [],
+      balance: []
     }
   }
 
@@ -24,7 +25,21 @@ export class AppBittrex extends Component {
           payments: data
         });
       });
-  }
+
+      var url2 = 'https://explorer.arkcoin.net/api/getAccount?address=AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK';
+      fetch(url2)
+        .then(function(response2) {
+          if (response2.status >= 400) {
+            throw new Error("Bad response from server");
+          }
+          return response2.json();
+        })
+        .then(function(data2) {
+          that.setState({
+            balance: data2
+          });
+        });
+    }
 
   render() {
     const bittrex = "AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK";
@@ -73,8 +88,8 @@ export class AppBittrex extends Component {
 
     return (
       <div>
-        <p>
-        <a href={"https://explorer.arkcoin.net/address/"+bittrex}> {bittrex}</a>
+        <p>        
+          <a href={"https://explorer.arkcoin.net/address/"+bittrex}> Bittrex</a>: {Number (Math.round(this.state.balance.balance / 100000000)).toLocaleString('en')}
         </p>          
         <table>
           <thead>

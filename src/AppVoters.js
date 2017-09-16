@@ -53,6 +53,11 @@ export class AppVoters extends Component {
 
     return (
       <div>
+        <p>
+          Ark: {Number (Math.round(this.state.delegate.delegate.vote / 100000000) ).toLocaleString('en') } <br/>
+          Voters: {this.state.delegate.voters.length} <br/>
+          Average: {Number (Math.round(this.state.delegate.delegate.vote / 100000000 / this.state.delegate.voters.length) ).toLocaleString('en') }
+        </p>
         <table>
           <thead>
             <tr>

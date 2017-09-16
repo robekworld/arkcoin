@@ -3,9 +3,15 @@ import React, { Component } from 'react';
 export class AppLinks extends Component {
   render() {
     return (
-      <div className="AppBody">
+      <div className="AppLinks">
          <p>
-           <h3>Info</h3>
+          Welcome to arkcoin.net ! <br/>
+          <br/>
+          delegate jarunik
+        </p>
+        <br/>
+         <p>
+           <b>Information</b>
         </p>
         <p>
           <a href="https://www.reddit.com/r/ArkDelegates/wiki/jarunik">delegate proposal jarunik</a>
@@ -19,11 +25,12 @@ export class AppLinks extends Component {
         <p>
           <a href="https://www.reddit.com/r/arktrader/"> /r/arktrader</a>
         </p>
+        <br/>
         <p>
-          <h3>Tools</h3>
+          <b>Tools</b>
         </p>
         <p>
-          <a href="https://arkchat.net">Community Chat</a>
+          <a href="https://arkchat.net">discord</a>
         </p>
         <p>
           <a href="https://explorer.arkcoin.net/">explorer</a>
@@ -32,23 +39,37 @@ export class AppLinks extends Component {
           <a href="https://dexplorer.arkcoin.net/">devnet explorer</a>
         </p>     
         <p>
-          <a href="https://docs.google.com/spreadsheets/d/1UiFFWfnk_Ws7J1PfW-d1c4CcLUSqjAPPtKkPr_FCV9g/">Ark Account Statement</a>
+          <a href="https://docs.google.com/spreadsheets/d/1UiFFWfnk_Ws7J1PfW-d1c4CcLUSqjAPPtKkPr_FCV9g/">ark account statement</a>
         </p>  
         <p>
-          <a href="https://docs.google.com/spreadsheets/d/1QawUqYa_e9YN_3Stb3-WYTdJ2BgnYqxsErYbA2ihXjo">Delegate Who is Who</a>
+          <a href="https://docs.google.com/spreadsheets/d/1QawUqYa_e9YN_3Stb3-WYTdJ2BgnYqxsErYbA2ihXjo">delegate who is who</a>
         </p> 
         <p>
-          <a href="https://docs.google.com/spreadsheets/d/1rsHgAn1rEt_R1LF0KGc-Td0jODiYM4MmM8XHtFp3hM4">Investement and Portfolio Calculator</a>
+          <a href="https://docs.google.com/spreadsheets/d/1rsHgAn1rEt_R1LF0KGc-Td0jODiYM4MmM8XHtFp3hM4">portfolio calculator</a>
         </p>  
+        <br/>
         <p>
-          <h3>Github Repositories</h3>
+          <b>Github</b>
         </p>
         <p>
-          <a href="https://github.com/Jarunik/arkcoin">Arkcoin Website</a>
+          <a href="https://github.com/Jarunik/arkcoin">arkcoin website</a>
         </p> 
         <p>
-          <a href="https://github.com/Jarunik/ark-media">Media Collection</a>
-        </p>       
+          <a href="https://github.com/Jarunik/ark-media">media collection</a>
+        </p>  
+        <br/>
+        <p>
+          <b>Contact</b>
+        </p>
+        <p>
+          <a href="slack://user?team=T2AC8N7RQ&id=U4ZSN696H">slack</a>
+        </p> 
+        <p>
+          <a href="https://www.reddit.com/user/jarunik">reddit</a>
+        </p>              
+        <p>
+          <a href="https://arkchat.net">discord</a>
+        </p>  
       </div>
     );
   }
