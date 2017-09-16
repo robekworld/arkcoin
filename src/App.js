@@ -34,6 +34,9 @@ class AppIntro extends Component {
       <div className = "AppIntro">
         <p>
           Welcome to arkcoin.net <br/>
+          <br/>
+          Services provided by<br/>
+          delegate jarunik
         </p>
       </div>
     );
