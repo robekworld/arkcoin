@@ -62,13 +62,10 @@ export class AppLinks extends Component {
           <b>Contact</b>
         </p>
         <p>
-          <a href="slack://user?team=T2AC8N7RQ&id=U4ZSN696H">slack</a>
-        </p> 
-        <p>
           <a href="https://www.reddit.com/user/jarunik">reddit</a>
         </p>              
         <p>
-          <a href="https://arkchat.net">discord</a>
+          <a href="https://discord.gg/m7bt2js">delegate chat</a>
         </p>  
       </div>
     );
