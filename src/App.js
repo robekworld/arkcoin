@@ -10,6 +10,7 @@ import { AppHistory } from './AppHistory.js'
 import { AppPaymentRun} from './AppPaymentRun.js'
 import { AppPaymentVoter} from './AppPaymentVoter.js'
 import { AppBittrex} from './AppBittrex.js'
+import { AppNews} from './AppNews.js'
 
 class AppHeader extends Component {
   render() {
@@ -17,7 +18,8 @@ class AppHeader extends Component {
       <div className="AppHeader">
         <img src={ logo } className="AppLogo" alt="logo" />
         <nav>
-          <Link to='/'>Jarunik</Link> &nbsp;
+          <Link to='/'>News</Link> &nbsp;
+          <Link to='/links'>Jarunik</Link> &nbsp;
           <Link to='/delegates'>Delegates</Link> &nbsp;
           <Link to='/voters'>Voters</Link> &nbsp;
           <Link to='/history'>History</Link> &nbsp;
@@ -33,7 +35,8 @@ class AppMain extends Component {
     return (
       <div className="AppMain">
         <Switch>
-          <Route exact path='/' component={AppLinks}/>
+          <Route exact path='/' component={AppNews}/>
+          <Route path='/links' component={AppLinks}/>
           <Route path='/delegates' component={AppDelegate}/>
           <Route path='/voters' component={AppVoters}/>          
           <Route path='/history' component={AppHistory}/>

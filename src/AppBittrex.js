@@ -57,7 +57,7 @@ export class AppBittrex extends Component {
 
     const paymentRow = this.state.payments.transactions.map((payment) =>
       <tr key={ payment.id }>
-        <td> { payment.senderId == bittrex ?
+        <td> { payment.senderId === bittrex ?
             <a href={"https://explorer.arkcoin.net/address/"+payment.recipientId}> {payment.recipientId}</a>
             :
             <a href={"https://explorer.arkcoin.net/address/"+payment.senderId}> {payment.senderId}</a>
@@ -66,7 +66,7 @@ export class AppBittrex extends Component {
         <td> 
         {payment.amount / 100000000 > 1000 ?
             <b>
-                {payment.senderId == bittrex ?
+                {payment.senderId === bittrex ?
                     <font color='green'> {Number(-Math.round(payment.amount / 100000000)).toLocaleString('en')} </font>
                     :
                     <font color='red'> {Number(Math.round(payment.amount / 100000000)).toLocaleString('en')} </font>
@@ -74,7 +74,7 @@ export class AppBittrex extends Component {
             </b>  
             :
             <div>
-                {payment.senderId == bittrex ?
+                {payment.senderId === bittrex ?
                     <font color='green'> {Number (-Math.round(payment.amount / 100000000)).toLocaleString('en')} </font>
                     :
                     <font color='red'> {Number(Math.round(payment.amount / 100000000)).toLocaleString('en')} </font>
